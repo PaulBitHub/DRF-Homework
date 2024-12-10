@@ -100,7 +100,7 @@ dmypy.json
 
 cython_debug/
 
-.idea/
+.idea
 .vscode/
 
 poetry.toml
