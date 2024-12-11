@@ -15,7 +15,7 @@ class LessonSerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
     count_lessons_in_course = serializers.SerializerMethodField()
     lesson = LessonSerializer(source="lessons", many=True)
-    subscription = serializers.SerializerMethodField()
+    # subscription = serializers.SerializerMethodField()
 
     class Meta:
         model = Course
