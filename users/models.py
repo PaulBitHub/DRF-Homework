@@ -52,7 +52,7 @@ class Payment(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="user",
+        related_name="payments",
     )
     pay_date = models.DateField(verbose_name='дата оплаты')
     payed_course = models.ForeignKey(
