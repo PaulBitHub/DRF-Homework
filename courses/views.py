@@ -24,14 +24,6 @@ class CourseViewSet(ModelViewSet):
             return CourseDetailSerializer
         return CourseSerializer
 
-    # def get_permissions(self):
-    #     if self.action in ["create"]:
-    #         self.permission_classes = (~IsModer,)
-    #     elif self.action in ["update", "retrieve"]:
-    #         self.permission_classes = (IsModer | IsOwner,)
-    #     elif self.action in ["destroy"]:
-    #         self.permission_classes = (~IsModer | IsOwner,)
-    #     return super().get_permissions()
 
     def perform_create(self, serializer):
         course = serializer.save()
