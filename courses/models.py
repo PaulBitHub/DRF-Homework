@@ -1,4 +1,5 @@
 from django.db import models
+
 # from users.models import User
 
 NULLABLE = {"blank": True, "null": True}
@@ -14,7 +15,11 @@ class Course(models.Model):
     )
     description = models.TextField(verbose_name="description")
     owner = models.ForeignKey(
-        'users.User', on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Владелец"
+        "users.User",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name="Владелец",
     )
 
     def __str__(self):
@@ -45,7 +50,11 @@ class Lesson(models.Model):
     link = models.URLField(max_length=200, blank=True, null=True, verbose_name="link")
 
     owner = models.ForeignKey(
-        'users.User', on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Владелец"
+        "users.User",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name="Владелец",
     )
 
     def __str__(self):
@@ -54,4 +63,3 @@ class Lesson(models.Model):
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
-

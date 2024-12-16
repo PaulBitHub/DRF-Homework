@@ -45,29 +45,33 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
 
+
 class Payment(models.Model):
     class TypeOfPay(models.TextChoices):
-        CASH = 'CASH', 'CASH'
-        CARD = 'CARD', 'CARD'
+        CASH = "CASH", "CASH"
+        CARD = "CARD", "CARD"
+
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name="payments",
     )
-    pay_date = models.DateField(verbose_name='дата оплаты')
+    pay_date = models.DateField(verbose_name="дата оплаты")
     payed_course = models.ForeignKey(
         Course,
         on_delete=models.SET_NULL,
-        related_name='payments',
+        related_name="payments",
         blank=True,
         null=True,
     )
     payed_lesson = models.ForeignKey(
         Lesson,
         on_delete=models.SET_NULL,
-        related_name='payments',
+        related_name="payments",
         blank=True,
         null=True,
     )
-    payed_money = models.PositiveIntegerField(verbose_name='сумма оплаты')
-    type_of_pay = models.CharField(max_length=5, choices=TypeOfPay.choices, verbose_name='способ оплаты')
+    payed_money = models.PositiveIntegerField(verbose_name="сумма оплаты")
+    type_of_pay = models.CharField(
+        max_length=5, choices=TypeOfPay.choices, verbose_name="способ оплаты"
+    )
