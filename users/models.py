@@ -75,3 +75,10 @@ class Payment(models.Model):
     type_of_pay = models.CharField(
         max_length=5, choices=TypeOfPay.choices, verbose_name="способ оплаты"
     )
+
+    class Meta:
+        verbose_name = "Платеж"
+        verbose_name_plural = "Платежи"
+
+    def __str__(self):
+        return f"{self.user} - {self.payed_money} ({self.pay_date})"

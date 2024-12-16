@@ -54,3 +54,19 @@ class PaymentViewSet(viewsets.ModelViewSet):
     filterset_fields = ("payed_course", "type_of_pay")
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ("pay_date",)
+
+class PaymentCreateApiView(CreateAPIView):
+    serializer_class = PaymentSerializer
+    queryset = Payment.objects.all()
+class PaymentListApiView(ListAPIView):
+    serializer_class = PaymentSerializer
+    queryset = Payment.objects.all()
+class PaymentRetrieveApiView(RetrieveAPIView):
+    serializer_class = PaymentSerializer
+    queryset = Payment.objects.all()
+class PaymentUpdateApiView(UpdateAPIView):
+    serializer_class = PaymentSerializer
+    queryset = Payment.objects.all()
+class PaymentDestroyApiView(DestroyAPIView):
+    serializer_class = PaymentSerializer
+    queryset = Payment.objects.all()
