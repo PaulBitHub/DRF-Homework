@@ -1,5 +1,7 @@
 from django.db import models
 
+from config import settings
+
 # from users.models import User
 
 NULLABLE = {"blank": True, "null": True}
@@ -50,10 +52,9 @@ class Lesson(models.Model):
     link = models.URLField(max_length=200, blank=True, null=True, verbose_name="link")
 
     owner = models.ForeignKey(
-        "users.User",
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        **NULLABLE,
         verbose_name="Владелец",
     )
 
